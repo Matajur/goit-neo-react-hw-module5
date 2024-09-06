@@ -16,7 +16,7 @@ const HomePage = () => {
       "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
     const options = {
       headers: {
-        Authorization: accessKey,
+        Authorization: `Bearer ${accessKey}`,
       },
     };
 

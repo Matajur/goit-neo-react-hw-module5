@@ -14,7 +14,7 @@ const MovieCast = () => {
     const url = `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`;
     const options = {
       headers: {
-        Authorization: accessKey,
+        Authorization: `Bearer ${accessKey}`,
       },
     };
 

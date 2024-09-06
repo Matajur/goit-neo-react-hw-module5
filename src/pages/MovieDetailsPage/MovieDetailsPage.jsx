@@ -25,7 +25,7 @@ const MovieDetailsPage = () => {
     const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
     const options = {
       headers: {
-        Authorization: accessKey,
+        Authorization: `Bearer ${accessKey}`,
       },
     };
 
