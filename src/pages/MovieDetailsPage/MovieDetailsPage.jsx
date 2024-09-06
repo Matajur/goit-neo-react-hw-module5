@@ -17,7 +17,7 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const locationObj = useRef(location.state.url ?? "/movies");
+  const locationObj = useRef(location?.state?.url || "/movies");
 
   const accessKey = getAccessKey();
 
@@ -37,7 +37,7 @@ const MovieDetailsPage = () => {
 
   const goBack = () => {
     navigate(locationObj.current, {
-      state: { content: location.state.content },
+      state: { content: location?.state?.content },
     });
   };
 
@@ -75,17 +75,21 @@ const MovieDetailsPage = () => {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={location.state}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={location.state}>
+              Reviews
+            </Link>
           </li>
         </ul>
+        <hr />
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
       </div>
-      <hr />
     </div>
   );
 };

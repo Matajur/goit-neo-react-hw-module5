@@ -24,11 +24,16 @@ const MovieCast = () => {
       .catch((err) => console.error(err));
   }, [movieId, accessKey]);
 
+  console.log("Cast", cast);
+
   return (
     <div>
       <ul>
-        {cast.map((member) => (
-          <li key={member.cast_id}>{member.name}</li>
+        {cast.map((character) => (
+          <li key={character.cast_id}>
+            <img src={`https://image.tmdb.org/t/p/w500${character.profile_path}`} alt={`${character.original_name} photo`} width="100" />
+            <p>{character.name}</p>
+            <p>Character: {character.character}</p></li>
         ))}
       </ul>
     </div>
